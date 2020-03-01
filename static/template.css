@@ -1,0 +1,14 @@
+
+.container{
+	font-family: Helvetica;
+	color: white;
+	text-align: center;
+}
+ul{
+	list-style-type: none;
+	margin: 0;
+	padding-bottom: 3px;
+	overflow: hidden;
+	
+}
+
