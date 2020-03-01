@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About Project</title>
+    <link rel="shortcut icon" href="static/ic2.png" type="image/x-icon">
+  </head>
+  <style type="text/css">
+  	*{
+  		text-align: center;
+  		font-family: Helvetica;
+  	}
+  	p{
+  		font-size: 20px;
+  	}
+  	ol{
+  		font-size: 25px;
+  	}
+  	#summary li{
+  		color: green;
+  		display: inline;
+  		border-width: 10px solid black;
+  		border-color: blue;
+  	}
+  </style>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+<h1>THE INSPIRATION</h1>
+<p>With rapid development of electronic control technology in internet technology <br>In modern medical industry and with the development of electronic stethoscope <br>We are one step closer to the remote diagnosis as the hardware part of it is readily available <br>but there are limited software system that can classify stethoscope sound.<br><br>This project will also aid the remote diagnosis of patients.</p>
+<div id="summary">
+	<p>We implemented machine learning algorithm on <b>Mel-spectrogram images</b> in the <b>convolutional neural network (CNN)</b>. <br>Since considering MFCC features to classify sounds is generally accepted classification method for audio, <br>We used its scale to find patterns in Spectrogram of samples using CNN.<br> We classified sound in four classes: </p>
+		<ol><b>
+			<li>Healthy ||</li>
+			<li> Containing Wheezes ||</li>
+				<li> Containing Crackles ||</li>
+					<li>Containing both</li> </b>
+		</ol><p>Accuracy results of the experiments were around 63\%-65\%. </p>
+</div>
+<marquee bgcolor="green" style="color: #FFFFFF; font-family: Book Antiqua" behavior="alternate" direction="up" height="50px" size="20px">
+Used Following Technologies:
+</marquee>
+<h2>Deep Learning</h2><p>Deep learning is a technology for computers to learn whathuman  brain  does  naturally.  It  is  a  main  key  technology  inunderstanding patterns like language,sounds, etc. </p>
+<h2>Mel Frequency Cepstral Coefficients</h2>
+<p>In speech recognition and speaker related applications, Mel Frequency Cepstral Coefficients (MFCCs) is the most preferred feature.
+Mel-frequency cepstral coefficients (MFCCs) make up an MFC.
+When we apply cepstral representation on an audio clip, we get. The major difference between the cepstrum and the mel-frequency cepstrum is that here, the frequency triangles are spaced on the mel scale in such a way that they are equivalent to the human hearing system’s response.</p>
+<h2>Convolutional neural network</h2><p>
+Convolutional neural network can be described as one of the deep neural networks. CNN is mostly used to detect patterns in Visual Images.  They are regularized module of fully  connected  networks, i.e. the nodes in all layers are linked with all the nodes in next layer. It follows the same performance as a human visual cortex does.</p>
+
+<marquee bgcolor="green" style="color: #FFFFFF; font-family: Book Antiqua" behavior="alternate" direction="up" height="50px" size="20px">
+Data Augmentation using:
+</marquee>
+<h2>VLTP</h2>
+<p>
+Here we used VLTP on samples to fix pre-processing of spectrograms and to remove
+some degree of speaker variation. It is parameterized by a warp factor which changes how and
+where the filters are applied, smoothly. Warping is applied directly to the filter banks of construction by changing the location of centers.</p>
+<img src="static\vltp1.PNG"><p>The difference between vltp applied and normal sample can be observed in fig above.</p>
+
+
+<h2>Audio Stretching</h2><p>
+Audio stretching is used for re-sampling
+Sample rate conversion is the easiest way to change the pitch and duration. In this operation, waveform is rebuild from samples and then it is again sampled at a new sampling rate. On running the audio samples at actual speed, they are advanced or delayed.</p>
+<marquee bgcolor="green" style="color: #FFFFFF; font-family: Book Antiqua" behavior="alternate" direction="up" height="50px" size="20px">
+Samples obtained from audio:
+</marquee>
+<h2>Mel-Spectrograms</h2>
+<p>When a Spectrogram has a Mel Scale plotted on vertical axis, it is Mel-Spectrogram. <br>This process returns the mel spectrogram of the audio input at sample rate fs. MFC represents sounds' short term power spectrum based on linear CT of a log energy spectrum on a non linear axis.
+
+A spectrogram is an imagery of the signal strength,  over time at different frequencies present in a particular waveform.<br>We can see below the Mel-spectrograms of different samples.</p>
+<img src="static\wc1.PNG"><br>
+<img src="static\wc2.PNG">
+<marquee bgcolor="green" style="color: #FFFFFF; font-family: Book Antiqua" behavior="alternate" direction="up" height="50px" size="20px">
+Accuracy and Loss:
+</marquee>
+<img src="static\accuracy.PNG"><br><p>It can be inferred from recall score that we get false positives when classifying "wheezes" and "wheezes and crackles" this currently is a difficult classification. Overall validation accuracy is about <i><b>65%</b></i>
+ Our system accuracy can be improved provided large data set.</p>
+    {% endblock %}
+
+  </body>
+</html>

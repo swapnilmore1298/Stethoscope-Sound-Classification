@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Successfully Uploaded !</title>
+    <link rel="shortcut icon" href="static/ic2.png" type="image/x-icon">
+  </head>
+    <script type="text/javascript">
+    function readURL(input) {
+  if (input.files && input.files[0]) {
+
+    var reader = new FileReader();
+
+    reader.onload = function(e) {
+      $('.image-upload-wrap').hide();
+
+      $('.file-upload-image').attr('src', e.target.result);
+      $('.file-upload-content').show();
+
+      $('.image-title').html(input.files[0].name);
+    };
+
+    reader.readAsDataURL(input.files[0]);
+
+  } else {
+    removeUpload();
+  }
+}
+
+function removeUpload() {
+  $('.file-upload-input').replaceWith($('.file-upload-input').clone());
+  $('.file-upload-content').hide();
+  $('.image-upload-wrap').show();
+}
+$('.image-upload-wrap').bind('dragover', function () {
+        $('.image-upload-wrap').addClass('image-dropping');
+    });
+    $('.image-upload-wrap').bind('dragleave', function () {
+        $('.image-upload-wrap').removeClass('image-dropping');
+});
+  </script>
+  <style type="text/css">
+    .file-upload {
+  background-color: #ffffff;
+  width: 600px;
+  height: 200px;
+  margin: 0 auto;
+  padding: 0px;
+}
+
+.file-upload-btn {
+  width: 100%;
+  margin: 0;
+  color: white  ;
+  background: green;
+  border: none;
+  padding: 20px;
+  border-radius: 4px;
+  border-bottom: 4px solid lightgreen;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.file-upload-btn:hover {
+  background: lightgreen;
+  color: black;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.file-upload-btn:active {
+  border: 0;
+  transition: all .2s ease;
+}
+
+.file-upload-content {
+  display: none;
+  text-align: center;
+}
+
+.file-upload-input {
+  position: absolute;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  outline: none;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.image-upload-wrap {
+  margin-top: 20px;
+  border: 4px dashed white;
+  position: relative;
+  background-color: lightgreen;
+  color: green;
+}
+
+.image-dropping,
+.image-upload-wrap:hover {
+  background-color: green;
+  color: white;
+  border: 4px dashed green;
+}
+
+.image-title-wrap {
+  padding: 0 15px 15px 15px;
+  color: green;
+}
+
+.drag-text {
+  text-align: center;
+}
+
+.drag-text h3 {
+  font-weight: 100;
+  text-transform: uppercase;
+  color: #ffff;
+  padding: 60px 0;
+}
+
+
+.remove-image {
+  width: 400px;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  margin: 0;
+  color: #fff;
+  background: #cd4535;
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+  border-bottom: 4px solid #b02818;
+  transition: all .2s ease;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.remove-image:hover {
+  background: #c13b2a;
+  color: #ffffff;
+  transition: all .2s ease;
+  cursor: pointer;
+}
+
+.remove-image:active {
+  border: 0;
+  transition: all .2s ease;
+}
+  </style>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+
+
+
+<p>File uploaded successfully</p>  
+<p>File Name: {{name}}</p>
+<br>
+<script class="jsbin" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<form action = "/success2" method = 'POST' enctype="multipart/form-data">
+<div class="file-upload">
+    <div class="image-upload-wrap">
+    <input class="file-upload-input" name="file2" type='file' onchange="readURL(this);" accept="text/*" />
+    <div class="drag-text">
+      <h3>DROP THE TEXT FILE HERE !</h3>
+    </div>
+
+  </div>
+  <div class="file-upload-content">
+    
+    <div class="image-title-wrap">
+      <button type="button" onclick="removeUpload()" class="remove-image">Remove <span class="image-title">Uploaded Document</span></button>
+    </div>
+  </div>
+  <br>
+  <input type="submit" class="file-upload-btn" value="Click To Submit" >
+</div> 
+</form> 
+
+
+
+
+    {% endblock %}
+  </body>
+</html>

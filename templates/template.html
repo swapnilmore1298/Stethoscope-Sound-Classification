@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+ <head>
+   <meta charset="utf-8">
+   <title>Stethoscope Sound Classification</title>
+   <link rel="stylesheet" href="{{ url_for('static',filename='css/template.css') }}">
+   
+ </head>
+ <body>
+    <header>
+      <div class="container">
+        <div class="containertop" >
+        <h1 class="logo">Remote Diagnosis
+        </h1></div>
+        <strong><nav id="navbar">
+          <ul class="menu">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('aboutproject') }}">Project Explained</a></li>
+             <li><a href="{{ url_for('about') }}">About Us</a></li>
+            <li><a href="#references">References</a></li>
+           
+          </ul>
+        </nav></strong>
+      </div>
+    </header>
+    
+    {% block content %}
+    {% endblock %}
+    <br><br><br><br>
+
+    <div class="footer">
+  <p>© Copyrights S_07 Pvt. Ltd | Rights Reserved | Email us @ swapnilmore1298@gmail.com </p>
+</div>
+    
+ </body>
+<style type="text/css">
+  .footer {
+    background-color: green;
+    padding: 50px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    position: static;
+}
+
+  .containertop{
+    font-family: Helvetica;
+    color: green;
+    background-color: white;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+  }
+  #navbar li{
+  display: inline;
+}
+  #navbar{
+    font-size: 25px;
+    color: white;
+    background-color: green;
+    font-family: Helvetica;
+    padding: 10px;
+  }
+  #navbar a{
+  color:white;
+  text-decoration: none;
+  padding:20px;
+}
+#navbar a:hover{
+  
+  color:green;
+  padding: 20px;
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: white;
+  
+  transition: all .1s ease;
+}
+</style>
+</html>

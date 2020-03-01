@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>About Us:</title>
+    <link rel="shortcut icon" href="static/ic2.png" type="image/x-icon">
+  </head>
+  <style type="text/css">
+    table, td, th {
+            border: 10px ;
+            width: 1000px;
+            text-align: center;
+            padding-bottom: 20px;
+         }
+         th{
+          color: green;
+          font-size: 22px;
+         }
+         td{
+
+         }
+  </style>
+  <body>
+    {% extends "template.html" %}
+    {% block content %}
+    <h1> Authors: </h1>
+    <table border="5px" align="center" color="green">
+      <tr>
+      <th>
+        SWAPNIL MORE
+      </th>
+      <TH>
+        MANMOHAN SHARMA
+      </TH>
+      <TH>
+        NAVJOT RAJPUT
+      </TH>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="static\user5.png" height="180px" width="160px">
+      </td>
+      <td align="center">
+        <img src="static\user2.png" height="180px" width="165px">
+      </td>
+      <td align="center">
+        <img src="static\user3.png" height="180px" width="160px">
+      </td>
+    </tr>
+    <tr>
+      <td>
+        swapnilmore1298@gmail.com
+      </td>
+      <td>
+        manmohan659@gmail.com
+      </td>
+      <td>
+        njsingh6947@gmail.com
+      </td>
+    </tr>
+    <tr>
+      <td><a href="https://www.linkedin.com/in/swapnil-more-01509615b/">Linkedin Profile</a>
+        
+      </td>
+      <td><a href="https://www.linkedin.com/in/manmohan-sharma-716661167/">Linkedin Profile</a>
+        
+      </td>
+      <td><a href="https://www.linkedin.com/in/navjot-singh-rajput-88a672148/">Linkedin Profile</a>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        Machine Learning Enthusiast<br>
+        Backend Developer
+      </td>
+      <td>
+        Frontend Developer<br>
+        Documentation Expert
+      </td>
+      <td>
+        Data Science Enthusiast<br>
+        Machine Learning Aspirant
+      </td>
+    </tr>
+   
+    <tr>
+      <td colspan="3">Ramrao Adik Institute of Technology, Navi Mumbai</td></tr>
+    </tr>
+     <tr>
+      <td>
+        <b><h1>WE</h1></b>
+      </td>
+      <td>
+        <b><h1>ARE</h1></b>
+      </td>
+      <td>
+        <b><h1>FUTURE</h1></b>
+      </td>
+    
+    </tr>
+    </table>
+
+    {% endblock %}
+  </body>
+</html>
